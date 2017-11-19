@@ -15,38 +15,33 @@ using DevExpress.Persistent.Validation;
 namespace LoanApp.Module.BusinessObjects
 {
     [DefaultClassOptions,ImageName("BO_Contact")]
-        public class Collector : XPObject
+    
+    public class Products : BaseObject
     {
-        private string _firstName;
-        private string _lastName;
-        private string _middleName;
-        public string FirstName {
-            get { return _firstName; }
-            set { SetPropertyValue("FirstName", ref _firstName, value); }
-           
-        }
+        private string _ProductName;
 
-        public string LastName
+        public string ProductName
         {
-            get { return _lastName; }
-            set { SetPropertyValue("LastName", ref _lastName, value); }
+            get { return _ProductName; }
+            set { SetPropertyValue("ProductName", ref _ProductName, value); }
         }
 
-        public string MiddleName
+        private string _productdescription;
+
+        public string ProductDescription
         {
-            get { return _middleName; }
-            set { SetPropertyValue("MiddleName", ref _middleName, value); }
+            get { return _productdescription; }
+            set { SetPropertyValue("ProductDescription", ref _productdescription, value); }
         }
-
-        public Collector(Session session)
+        public Products(Session session)
             : base(session)
         {
         }
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-         
+           
         }
-      
+       
     }
 }

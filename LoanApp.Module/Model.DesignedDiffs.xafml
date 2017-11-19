@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="LoanApp">
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
-  <Views>
-  </Views>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="17.1.8.0" IsNewNode="True" />
+  </SchemaModules>
 </Application>
