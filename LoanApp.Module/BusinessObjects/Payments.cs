@@ -16,8 +16,13 @@ namespace LoanApp.Module.BusinessObjects
 {
     [DefaultClassOptions ,ImageName("BO_Contact")]
        public class Payments : XPObject
-    { 
-
+    {
+        private string _paymentName;
+        public  string PaymentName
+        {
+            get { return _paymentName; }
+            set { SetPropertyValue("PaymentName", ref _paymentName, value); }
+        }
         public Payments(Session session)
             : base(session)
         {

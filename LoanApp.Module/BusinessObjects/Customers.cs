@@ -21,6 +21,14 @@ namespace LoanApp.Module.BusinessObjects
         private string _firstName;
         private string _lastName;
         private string _middleName;
+        private string _phoneNo;
+
+        [PersistentAlias(@"[FirstName] +'  '+ [MiddleName]+'  '+[LastName]+'  '+[PhoneNo]")]
+
+        public string FullName
+        {
+            get { return (string)(EvaluateAlias("FullName")); }
+        }
 
         public string FirstName
         {
@@ -40,11 +48,26 @@ namespace LoanApp.Module.BusinessObjects
             get { return _middleName; }
             set { SetPropertyValue("MiddleName", ref _middleName, value); }
         }
+        public string PhoneNo
+        {
+            get { return _phoneNo; }
+            set { SetPropertyValue("PhoneNo", ref _phoneNo, value); }
+        }
 
         [ImageEditor(ListViewImageEditorCustomHeight = 75, DetailViewImageEditorFixedHeight = 150)]
         public byte[] Photo { get; set; }
-        [Association("Customers-Accounts")]
+     
+        public Gender GenderStatus { get; set; }
 
+        public enum Gender
+        {
+
+            Male = 0,
+            Female = 1
+
+        }
+        [Association("Customers-Accounts")]
+       // [Association("Customers-Accounts")]
 
         public XPCollection<Accounts> Accounts
         {
